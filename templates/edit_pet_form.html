@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+
+
+{% block title %}Edit Animal{% endblock %}
+
+{% block content %}
+<body>
+    <div class="container">
+        
+            
+                <h1 class="display-1 text-center">Edit Animal</h1>
+                <div class="row justify-content-center">
+                <div class="col-md-8">
+                <form method="post">
+                    {{ form.hidden_tag() }}
+
+                        <p class="form-group">
+                            {{form.notes.label}}
+                            {{ form.notes }}
+                        </p>
+                        <p class="form-group">
+                            {{form.photo_url.label}}
+                            {{ form.photo_url }}
+                        </p>
+                        <p class="form-group">
+                            {{form.is_available.label}}
+                            {{ form.is_available }}
+                        </p>
+
+                    <button class="btn btn-success btn-lg" type="submit" >Submit</button>
+                </form>
+                <a href="/"><button>Back</button></a>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}

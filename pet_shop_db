@@ -1,0 +1,28 @@
+\c users
+SELECT * FROM tags;
+SELECT * FROM tags;
+SELECT * FROM users;
+SELECT * FROM posts;
+clear
+SELECT * FROM tags;
+SELECT * FROM tags;
+SELECT * FROM post_tags;
+SELECT * FROM posts;
+\users
+\c users
+SELECT * FROM posts;
+SELECT * FROM post_tags;
+SELECT * FROM post_tags;
+\c employee_db
+\c employees_db
+\c employees_db
+SELECT * FROM employees;
+SELECT * FROM employee;
+SELECT * FROM departments;
+\dt
+\d
+\c employee.db
+\c employees.db
+\c employees_db
+SELECT * FROM employees;
+\s pet_shop_db

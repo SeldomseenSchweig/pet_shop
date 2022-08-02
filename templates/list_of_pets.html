@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+
+{% block title %} Pets For Adoption  {% endblock %}
+
+{% block content %}
+<h1>Pet Adoption</h1>
+<div>
+    <div style=" width: 33.33%; float: left;">
+        {% for pet in pets %}
+        
+            {% if pet.photo_url%}
+            <img class="img-thumbnail" src="{{pet.photo_url}}" alt="photo">
+            {% else %}
+            <img class="img-thumbnail" src="https://cdn.pixabay.com/photo/2016/05/27/18/26/terrier-1420405__340.png"> </img>
+            {% endif %}
+        
+            {% if pet.available %}
+            <p style="text-align:center;"><a href="/{{pet.id}}">{{pet.name}}</a> Available</p>
+            
+            {% else %}
+            <p><a href="/{{pet.id}}">{{pet.name}}</a> Not Available</p>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+<a href="/add"> <button class="btn btn-success"> Add Animal For Adoption</button></a>
+
+
+
+{% endblock %}
