@@ -13,3 +13,11 @@ class PetForm(FlaskForm):
     photo_url = URLField("Photo -(Optional)",  validators=[Optional()])
     is_available = BooleanField("Is it available?", default="Checked")
     notes= TextAreaField("Notes (Optional): ")
+
+
+class EditPetForm(FlaskForm):
+    """Adds pet to form"""
+    photo_url = URLField("Photo -(Optional)",  validators=[Optional()])
+    is_available = BooleanField("Is it available?", default="Checked")
+    notes= TextAreaField("Notes (Optional): ")
+

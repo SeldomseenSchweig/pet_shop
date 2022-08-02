@@ -1,7 +1,7 @@
 from crypt import methods
 from flask import Flask, request, redirect, render_template, flash
 from models import db, connect_db, Pet
-from forms import PetForm
+from forms import PetForm, EditPetForm
 
 
 
@@ -42,19 +42,19 @@ def add_pet_form():
 
 
 
-# @app.route('/<int:id>', methods=["GET", "POST"])
-# def edit_form(id):
-#     pet = Pet.query.get_or_404(id)
-#     form = PetForm()
+@app.route('/<int:id>', methods=["GET", "POST"])
+def edit_form(id):
+    pet = Pet.query.get_or_404(id)
+    form = EditPetForm(obj=pet)
 
-#     if form.validate_on_submit:
-#         pet.notes = form.notes.data
-#         pet.is_available = form.is_available.data
-#         pet.photo_url = form.photo_url.data
-#         db.session.commit()
-#         return redirect('/')
-#     else:
-#         return render_template('edit_pet_form.html', form=form)
+    if form.validate_on_submit():
+        pet.notes = form.notes.data
+        pet.is_available = form.is_available.data
+        pet.photo_url = form.photo_url.data
+        db.session.commit()
+        return redirect('/')
+    else:
+        return render_template('edit_pet_form.html', form=form, id=id)
 
 
     
