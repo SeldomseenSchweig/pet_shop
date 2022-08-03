@@ -20,12 +20,14 @@ debug = DebugToolbarExtension(app)
 
 @app.route('/')
 def list_pets():
+    """Lists pets"""
     pets = Pet.query.all()
     return render_template("list_of_pets.html", pets=pets)
 
 
 @app.route('/add', methods=["POST", "GET"])
 def add_pet_form():
+    """shows and handles form to add pet"""
     form = PetForm()
     if form.validate_on_submit():
         name = form.name.data
@@ -44,6 +46,7 @@ def add_pet_form():
 
 @app.route('/<int:id>', methods=["GET", "POST"])
 def edit_form(id):
+    """show and handles form to edit petEdits pet"""
     pet = Pet.query.get_or_404(id)
     form = EditPetForm(obj=pet)
 

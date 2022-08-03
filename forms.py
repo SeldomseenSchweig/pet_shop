@@ -11,13 +11,15 @@ class PetForm(FlaskForm):
     species = StringField("Species (cat, dog, or porcupine) : ", validators=[InputRequired("Please input a species"), AnyOf(values=["porcupine", "dog","cat"])])
     age = IntegerField("Age (between 1-30): ", validators=[Optional(),NumberRange(min=0, max=30, message=" Please put in a number between 0 - 30")])
     photo_url = URLField("Photo -(Optional)",  validators=[Optional()])
-    is_available = BooleanField("Is it available?", default="Checked")
+    
+   
     notes= TextAreaField("Notes (Optional): ")
 
 
 class EditPetForm(FlaskForm):
-    """Adds pet to form"""
+
+    """Form for editing of pets """
     photo_url = URLField("Photo -(Optional)",  validators=[Optional()])
-    is_available = BooleanField("Is it available?", default="Checked")
+    is_available = BooleanField("Available?")
     notes= TextAreaField("Notes (Optional): ")
 
